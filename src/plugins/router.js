@@ -7,17 +7,26 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        title: '番茄鐘'
+      }
     },
     {
       path: '/settings',
       name: 'settings',
-      component: () => import('@/views/SettingsView.vue')
+      component: () => import('@/views/SettingsView.vue'),
+      meta: {
+        title: '番茄鐘'
+      }
     },
     {
       path: '/list',
       name: 'list',
-      component: () => import('@/views/ListView.vue')
+      component: () => import('@/views/ListView.vue'),
+      meta: {
+        title: '番茄鐘'
+      }
     }
   ]
 })
