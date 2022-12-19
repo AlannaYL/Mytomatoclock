@@ -13,7 +13,9 @@ export default defineConfig({
   plugins: [
     vue(),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
-    vuetify,
+    vuetify({
+      autoImport: true
+    }),
     VitePWA({
       // 設定快取自動更新
       registerType: 'autoUpdate',
