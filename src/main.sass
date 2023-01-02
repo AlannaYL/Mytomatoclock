@@ -1,0 +1,32 @@
+.v-main
+  background: url(./assets/MagicTomato.jpg) no-repeat center/cover fixed
+
+.v-container
+  text-align: center
+  border-radius: 5px
+  margin-top: 10%
+  position: relative
+  overflow: hidden
+  z-index: 1
+
+.v-container::before
+  content: ''
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  z-index: -1
+  background: rgba(255, 255, 255, 0.3)
+
+.v-container::after
+  content: ''
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  background: url(./assets/MagicTomato.jpg) no-repeat center/cover fixed
+  filter: blur(20px)
+  z-index: -2
+  margin: -25px

@@ -125,6 +125,12 @@ export default defineConfig({
       registerType: 'autoUpdate'
     })
   ],
+  // 如果要使用mains.sass，需要補上這段讓vite專案可以解析
+  build: {
+    loaders: {
+      sass: ['vue-style-loader', 'css-loader', 'sass-loader']
+    }
+  },
   define: { 'process.env': {} },
   resolve: {
     alias: {

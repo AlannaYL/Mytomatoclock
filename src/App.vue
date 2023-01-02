@@ -23,5 +23,4 @@ import { storeToRefs } from 'pinia'
 const settings = useSettingsStore()
 const { notify } = storeToRefs(settings)
 const { toggleNotify } = settings
-
 </script>
