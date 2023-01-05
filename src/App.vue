@@ -1,12 +1,12 @@
 <template lang="pug">
 v-app
-  v-app-bar(color="#9CCC65")
-    v-app-bar-title MagicTomato
+  v-app-bar(color="transparent")
+    v-app-bar-title(style="color:#ffffff") MagicTomato
     v-spacer
-    v-btn(icon="mdi-home" variant="text" to="/")
-    v-btn(icon="mdi-format-list-bulleted" variant="text" to="/list")
-    v-btn(icon="mdi-cog" variant="text" to="/settings")
-    v-btn(:icon="notify ? 'mdi-bell' : 'mdi-bell-off'" variant="text" @click="toggleNotify")
+    v-btn(icon="mdi-home" variant="text" to="/" style="color:#ffffff")
+    v-btn(icon="mdi-format-list-bulleted" variant="text" to="/list" style="color:#ffffff")
+    v-btn(icon="mdi-cog" variant="text" to="/settings" style="color:#ffffff")
+    v-btn(:icon="notify ? 'mdi-bell' : 'mdi-bell-off'" variant="text" style="color:#ffffff" @click="toggleNotify")
   v-main
     v-container
       router-view(v-slot="{ Component }")

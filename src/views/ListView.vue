@@ -1,36 +1,38 @@
 <template lang="pug">
 v-row#list
-  v-col(cols="12")
-    h1.text-center 待辦事項
-  v-col(cols="12")
-    v-text-field(ref="input" v-model="newItem" variant="solo" label="新增事項" :rules="[rules.required, rules.length]" @keydown.enter="onInputSubmit")
+
+  v-col.v-col-12.v-col-md-6
+    v-col
+      h1.text-center 待辦事項
+    v-col.d-flex.flex-wrap
+      v-text-field.v-col-10(ref="input" v-model="newItem" label="新增事項" :rules="[rules.required, rules.length]" @keydown.enter="onInputSubmit")
       template(#append)
-        v-btn(icon="mdi-plus" variant="text" @click="onInputSubmit")
-    v-table
-      thead
-        tr
-          th 名稱
-          th 操作
-      tbody
-        tr(v-if="items.length === 0")
-        td.text-center(colspan="2") 沒有事項
-        tr(v-for="item in items" :key="item.id" ref="editInputs")
-          td
-            //-:rules="[rules.required, rules.length]"抓到元件
-            v-text-field(v-if="item.edit" v-model="item.model" autofocus :rules="[rules.required, rules.length]")
-            span(v-else) {{ item.name }}
-          td
-            span(v-if="item.edit")
-              v-btn(icon="mdi-check" variant="text" color="green" @click="confirmEditItem(item.id)")
-              v-btn(icon="mdi-undo" variant="text" color="red" @click="undoEditItem(item.id)")
-            span(v-else)
-              v-btn(icon="mdi-pencil" variant="text" color="green" @click="editItem(item.id)")
-              v-btn(icon="mdi-delete" variant="text" color="red" @click="delItem(item.id)")
-  v-divider
-  v-col(cols="12")
-    h1 已完成事項
-  v-col(cols="12")
-    v-table
+      v-btn.v-col-2.mt-5(variant="text" style="background: rgba(255, 255, 255, 0.3)" @click="onInputSubmit") +
+      v-table.rounded-lg.elevation-2.v-col-12(style="background: rgba(255, 255, 255, 0.2)")
+        thead
+          tr
+            th 名稱
+            th 操作
+        tbody
+          tr(v-if="items.length === 0")
+          td.text-center(colspan="2") 沒有事項
+          tr(v-for="item in items" :key="item.id" ref="editInputs")
+            td
+              //-:rules="[rules.required, rules.length]"抓到元件
+              v-text-field(v-if="item.edit" v-model="item.model" autofocus :rules="[rules.required, rules.length]")
+              span(v-else) {{ item.name }}
+            td
+              span(v-if="item.edit")
+                v-btn(icon="mdi-check" variant="text" color="green" @click="confirmEditItem(item.id)")
+                v-btn(icon="mdi-undo" variant="text" color="red" @click="undoEditItem(item.id)")
+              span(v-else)
+                v-btn(icon="mdi-pencil" variant="text" color="green" @click="editItem(item.id)")
+                v-btn(icon="mdi-delete" variant="text" color="red" @click="delItem(item.id)")
+  v-divider.mt-5.d-md-none
+  v-col.v-col-12.v-col-md-6
+    v-col
+      h1 已完成事項
+    v-table.mt-3.rounded-lg.elevation-2(style="background: rgba(255, 255, 255, 0.2)")
       thead
         tr
           th 名稱

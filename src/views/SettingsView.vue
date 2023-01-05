@@ -3,7 +3,7 @@ v-row#settings
   v-col(cols="12")
     h1.text-center 設定
   v-col(cols="12")
-    v-table
+    v-table#music.rounded-lg.elevation-2(style="background: rgba(255, 255, 255, 0.2)")
       thead
         tr
           th 名稱
